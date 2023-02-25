@@ -7,7 +7,6 @@ import { userLogout} from "../../store/slices/auth.slice";
 
 
 const LayoutComponent: FC = () => {
-    // const authStore = useAppSelector((state) => state.authReducer);
     const navigate = useNavigate()
     const access = localStorage.getItem('access') as string;
     const refresh = localStorage.getItem('refresh') as string;

@@ -14,6 +14,7 @@ interface IInitialState {
     sales: ISale[];
     countries: ICountry[];
     statusFile: string ;
+    loading: boolean;
 }
 
 const initialState: IInitialState = {
@@ -25,6 +26,7 @@ const initialState: IInitialState = {
     countries: [],
     sales: [],
     statusFile: '',
+    loading: false,
 };
 
 export const getAllCountries = createAsyncThunk<ICountry[] | undefined>(
@@ -114,6 +116,13 @@ const userSlice = createSlice({
             (state, action: PayloadAction<any>) => {
                 state.error = action.payload.error
                 state.statusFile = action.payload.status
+                state.loading = false;
+            }
+        );
+         builder.addCase(
+            fileUpload.pending,
+            (state, action: PayloadAction<any>) => {
+                state.loading = true;
             }
         );
         builder.addCase(setSnackbarShown, (state) => {

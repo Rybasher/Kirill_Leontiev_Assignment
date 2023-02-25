@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './UserLogin.css'
 import {useNavigate} from "react-router-dom";
 import {userLogin} from "../../store/slices/auth.slice";
@@ -8,7 +8,6 @@ import {EyeInvisibleOutlined, EyeTwoTone} from '@ant-design/icons';
 import {Input} from 'antd';
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import Snackbar from "../../shared/SnackBar/Snackbar";
-
 
 
 const UserLogin = () => {

@@ -47,7 +47,7 @@ const StatisticsPage = () => {
             dispatch(getUserById(id))
             dispatch(getAllUserSales())
         }
-    }, [])
+    }, [dispatch, id])
 
     return (
         <div className={'data-container'}>

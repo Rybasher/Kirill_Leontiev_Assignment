@@ -1,5 +1,5 @@
 import {Box, TextField} from '@mui/material';
-import React, {useEffect, useState} from 'react';
+import React, {CSSProperties, useEffect, useState} from 'react';
 import './User.css'
 import {useNavigate} from "react-router-dom";
 import SelectInput from "../../shared/SelectInput/SelectInput";
@@ -9,6 +9,14 @@ import {IUser} from "../../interfaces/user.interface";
 import {ICity, ICountry} from "../../interfaces/city.interface";
 import VisibleButton from "../../shared/VisibleButton/VisibleButton";
 import SnackbarComponent from "../../shared/SnackBar/Snackbar";
+import ClipLoader from "react-spinners/ClipLoader";
+
+
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 
 const User = () => {
     const navigate = useNavigate();
@@ -17,7 +25,7 @@ const User = () => {
     const genderOptions = [{id: 1, name: 'male'}, {id: 2, name: 'female'}]
 
     const userStore = useAppSelector((state) => state.userReducer);
-    const {countries, statusFile, error} = userStore;
+    const {countries, statusFile, error, loading} = userStore;
 
     const [countrySelect, setCountry] = useState<string>();
     const [countryValue, setCountryValue] = useState<ICountry>();
@@ -28,7 +36,6 @@ const User = () => {
     const [email, setEmail] = useState<string>();
     const [fileInput, setFileInput] = useState<string | Blob>('');
     const [fileContents, setFileContents] = useState<string | ArrayBuffer | null>('');
-
 
     let cities: ICity[] | undefined = []
 
@@ -52,7 +59,7 @@ const User = () => {
     useEffect(() => {
         dispatch(getAllCountries())
 
-    }, [])
+    }, [dispatch])
 
     if (countryValue) {
         cities = countryValue.cities
@@ -94,7 +101,17 @@ const User = () => {
     }
 
     return (
-        <div className={'data-container'}>
+        <>
+            <div className="loader">
+        {loading && (
+            <ClipLoader
+            loading={loading}
+            cssOverride={override}
+            size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"/>)}
+    </div>
+            {!loading && (<div className={'data-container'}>
             <VisibleButton onClick={() => navigate('statistics')} label={'Statistic User'}></VisibleButton>
             <h3 className={'district-header'}>User</h3>
             <Box
@@ -166,7 +183,9 @@ const User = () => {
                 <SnackbarComponent type="error" message={error}/>
             )}
 
-        </div>
+        </div> )}
+
+        </>
     );
 };
 

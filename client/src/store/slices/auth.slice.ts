@@ -2,10 +2,6 @@ import {createAsyncThunk, createSlice, PayloadAction,} from '@reduxjs/toolkit';
 import {authService} from "../../services/auth.service";
 import {ILogin} from "../../interfaces/login.interface";
 import {IRegistration} from "../../pages/UserRegistration/UserRegistration";
-import {stringify} from "querystring";
-import {AxiosError} from "axios";
-
-
 interface IInitialState {
     userId: number;
     access: string | undefined;
