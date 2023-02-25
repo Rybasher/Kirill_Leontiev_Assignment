@@ -1,0 +1,10 @@
+.Header{
+    height: 70px;
+    display: flex;
+    background: blue;
+    color: white;
+}
+button{
+    background: blue;
+    color: white;
+}

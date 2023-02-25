@@ -1,0 +1,110 @@
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #d2dbd8;
+    margin: 0;
+}
+.auth-button {
+    display: flex;
+    position: absolute;
+    justify-content: flex-end;
+    top: 110px;
+    right: 90px;
+}
+
+.auth-button button {
+    background: blue;
+    color: white;
+}
+
+.visible-button button {
+    background: blue;
+    color: white;
+}
+
+.update-button button {
+    background: blue;
+    color: white;
+}
+
+.update-button {
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.district-header {
+    display: flex;
+
+}
+
+.form-state {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.custom-file {
+    border: 1px solid black;
+    width: 85%;
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.Layout {
+    display: flex;
+    justify-content: space-around;
+}
+
+.data-container {
+    background: white;
+    width: 90%;
+    padding: 40px 20px 20px;
+}
+
+.download-input {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.area-input div {
+    width: 100%;
+    height: 420px;
+}
+
+.container-inputs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.vision-value {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #aaa;
+    width: 40%;
+}
+.user-info{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+.static{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+textarea#outlined-multiline-static{
+    width: 100%;
+    height: 100% !important;
+}

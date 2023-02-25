@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  server:
+    container_name: docker_server
+    build: server/
+    restart: always
+
+    ports:
+      - "8000:8000"
+
+  client:
+    container_name: docker_client
+    build: client/
+    restart: always
+
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+
